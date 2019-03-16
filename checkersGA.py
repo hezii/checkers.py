@@ -15,12 +15,13 @@ def sq_draw (sqX, sqY, color, size, win): #defining the fuction to draw a square
 chkWin = GraphWin("Checkers", sqSz * 10, sqSz * 10) #creating the checkers window
 chkWin.setCoords(0,0, sqSz * 10, sqSz * 10) #setting the coords of the window
 
-for i in range(8): 
-    if i % 2 == 0: 
-        sqC = color #set the square color to user input
-    else: #if remainder is not 0 then
-        sqC = "black" #set the square color to black
-    sq_draw(sqSz * (i + 1), sqSz, sqC, sqSz, chkWin) #draws square with user color and size
+for k in range(8): #the for loop under is repeated 8 times (for each row)
+    for i in range(8): 
+        if (i + k) % 2 == 0: #if both for loop counters (i and k), when divided, the remainder is 0 set the color
+            sqC = color #set the square color to user input
+        else: #if remainder is not 0 then
+            sqC = "black" #set the square color to black
+        sq_draw(sqSz * (i + 1), sqSz * (k + 1), sqC, sqSz, chkWin) #draws square with user color and size
 
 chkWin.getMouse()
 chkWin.close()
